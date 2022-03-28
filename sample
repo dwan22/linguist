@@ -1,0 +1,9 @@
+function FormattingUATfile() {
+  var spreadsheet = SpreadsheetApp.getActive();
+  var sheet = spreadsheet.getActiveSheet();
+  spreadsheet.getActiveSheet().setName('Staging');
+  spreadsheet.getRange('A1').activate();
+  sheet.getRange(1, spreadsheet.getCurrentCell().getColumn(), sheet.getMaxRows(), 1).activate();
+  spreadsheet.getActiveSheet().insertColumnsBefore(spreadsheet.getActiveRange().getColumn(), 1);
+  spreadsheet.getActiveRange().offset(0, 0, spreadsheet.getActiveRange().getNumRows(), 1).activate();
+  spreadsheet.getCurrentCell().activate();
